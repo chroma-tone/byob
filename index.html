@@ -3,59 +3,59 @@
 <head> 
     <meta charset="UTF-8"> 
     <title>Processing</title>  
-		<script type = "text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script language="JavaScript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
-		<script type="text/javascript" src="/processing-1.4.1.js"></script>
-		<script type = "text/javascript" src="/processing-anim.js" ></script>
-		<script type="text/javascript" >
+	<script type = "text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script language="JavaScript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+	<script type="text/javascript" src="/processing-1.4.1.js"></script>
+	<script type = "text/javascript" src="/processing-anim.js" ></script>
+	<script type="text/javascript" >
 
 
-		$(document).ready(function(){
+	$(document).ready(function(){
 
 
-var processingInstance = new Processing("canvas1", sketchProc);
+		var processingInstance = new Processing("canvas1", sketchProc);
 	});
-	
+
 	</script>
-		
-		<script language="JavaScript" src="scriptcam-master/scriptcam.js"></script>
-		<script language="JavaScript"> 
-			$(document).ready(function() {
-				$("#webcam").scriptcam({
-					showMicrophoneErrors:false,
-					onError:onError,
-					cornerRadius:20,
-					cornerColor:'e3e5e2',
-					onWebcamReady:onWebcamReady,
-					uploadImage:'upload.gif',
-					onPictureAsBase64:base64_tofield_and_image
-				});
+	
+	<script language="JavaScript" src="scriptcam-master/scriptcam.js"></script>
+	<script language="JavaScript"> 
+		$(document).ready(function() {
+			$("#webcam").scriptcam({
+				showMicrophoneErrors:false,
+				onError:onError,
+				cornerRadius:20,
+				cornerColor:'e3e5e2',
+				onWebcamReady:onWebcamReady,
+				uploadImage:'upload.gif',
+				onPictureAsBase64:base64_tofield_and_image
 			});
-			function base64_tofield() {
-				$('#formfield').val($.scriptcam.getFrameAsBase64());
-			};
-			function base64_toimage() {
-				$('#image').attr("src","data:image/png;base64,"+$.scriptcam.getFrameAsBase64());
-			};
-			function base64_tofield_and_image(b64) {
-				$('#formfield').val(b64);
-				$('#image').attr("src","data:image/png;base64,"+b64);
-			};
-			function changeCamera() {
-				$.scriptcam.changeCamera($('#cameraNames').val());
-			}
-			function onError(errorId,errorMsg) {
-				$( "#btn1" ).attr( "disabled", true );
-				$( "#btn2" ).attr( "disabled", true );
-				alert(errorMsg);
-			}			
-			function onWebcamReady(cameraNames,camera,microphoneNames,microphone,volume) {
-				$.each(cameraNames, function(index, text) {
-					$('#cameraNames').append( $('<option></option>').val(index).html(text) )
-				}); 
-				$('#cameraNames').val(camera);
-			}
-		</script> 
+		});
+		function base64_tofield() {
+			$('#formfield').val($.scriptcam.getFrameAsBase64());
+		};
+		function base64_toimage() {
+			$('#image').attr("src","data:image/png;base64,"+$.scriptcam.getFrameAsBase64());
+		};
+		function base64_tofield_and_image(b64) {
+			$('#formfield').val(b64);
+			$('#image').attr("src","data:image/png;base64,"+b64);
+		};
+		function changeCamera() {
+			$.scriptcam.changeCamera($('#cameraNames').val());
+		}
+		function onError(errorId,errorMsg) {
+			$( "#btn1" ).attr( "disabled", true );
+			$( "#btn2" ).attr( "disabled", true );
+			alert(errorMsg);
+		}			
+		function onWebcamReady(cameraNames,camera,microphoneNames,microphone,volume) {
+			$.each(cameraNames, function(index, text) {
+				$('#cameraNames').append( $('<option></option>').val(index).html(text) )
+			}); 
+			$('#cameraNames').val(camera);
+		}
+	</script> 
 	
 </head> 
  
